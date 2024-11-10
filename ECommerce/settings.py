@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from pathlib import Path
 import os
-import django_heroku
 
 
 
@@ -163,3 +162,9 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
 }
+
+#This will automatically configure your Django application to work on Heroku by 
+# setting up database configurations, static file handling, and other 
+# Heroku-specific settings.
+
+
