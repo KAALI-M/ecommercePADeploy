@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 from pathlib import Path
 import os
+import dj_database_url
 
 
 
@@ -31,12 +32,15 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Using /
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s2%wb^pdhmm+tshd0331&z_)rz1x&(5*9+23b_ak=0_e-jtb%$'
+
+#SECRET_KEY = 'django-insecure-s2%wb^pdhmm+tshd0331&z_)rz1x&(5*9+23b_ak=0_e-jtb%$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost","kinbaja.pythonanywhere.com"]
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','EcommerceAPI.onrender.com']
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 #AUTH_USER_MODEL = 'Users.user' # Application definition
 
@@ -95,18 +99,21 @@ WSGI_APPLICATION = 'ECommerce.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # MySQL database engine
-        'NAME': 'kinbaja$default',          # Database name
-        'USER': 'kinbaja',               # Database user
-        'PASSWORD': 'Ilaak123456',           # Database password
-        'HOST': 'kinbaja.mysql.pythonanywhere-services.com',                   # Database host, usually 'localhost'
-        'PORT': '3306',                        # MySQL port, default is 3306
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-        
-    }
+
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+
+    #'default': {
+    #    'ENGINE': 'django.db.backends.mysql',  # MySQL database engine
+    #    'NAME': 'kinbaja$default',          # Database name
+    #    'USER': 'kinbaja',               # Database user
+    #    'PASSWORD': 'Ilaak123456',           # Database password
+    #    'HOST': 'kinbaja.mysql.pythonanywhere-services.com',                   # Database host, usually 'localhost'
+    #    'PORT': '3306',                        # MySQL port, default is 3306
+    #    'OPTIONS': {
+    #        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #    }
+    #    
+    #}
 }
 
 
