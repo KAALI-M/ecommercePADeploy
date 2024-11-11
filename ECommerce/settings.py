@@ -36,7 +36,7 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Using /
 #SECRET_KEY = 'django-insecure-s2%wb^pdhmm+tshd0331&z_)rz1x&(5*9+23b_ak=0_e-jtb%$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','EcommerceAPI.onrender.com']
 
