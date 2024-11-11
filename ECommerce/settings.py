@@ -38,7 +38,9 @@ MEDIA_ROOT = BASE_DIR / 'media'  # Using /
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','EcommerceAPI.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','.onrender.com','ecommerceapi-qbd8.onrender.com']
+
+CSRF_TRUSTED_ORIGINS = ['https://ecommerceapi-qbd8.onrender.com']
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
@@ -66,12 +68,17 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # to disable CSRF for API routes
+    'rest_framework.authentication.SessionAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework_simplejwt.authentication.JWTAuthentication', 
 ]
 
 ROOT_URLCONF = 'ECommerce.urls'
@@ -170,6 +177,9 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 #This will automatically configure your Django application to work on Heroku by 
 # setting up database configurations, static file handling, and other 
