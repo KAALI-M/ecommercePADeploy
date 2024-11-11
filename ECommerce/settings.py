@@ -174,5 +174,3 @@ SIMPLE_JWT = {
 #This will automatically configure your Django application to work on Heroku by 
 # setting up database configurations, static file handling, and other 
 # Heroku-specific settings.
-
-
