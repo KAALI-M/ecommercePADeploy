@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-s2%wb^pdhmm+tshd0331&z_)rz1x&(5*9+23b_ak=0_e-jtb%$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1", "localhost","kinbaja.pythonanywhere.com"]
 
 #AUTH_USER_MODEL = 'Users.user' # Application definition
 
@@ -97,14 +97,15 @@ WSGI_APPLICATION = 'ECommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # MySQL database engine
-        'NAME': 'ecommerceapi',          # Database name
-        'USER': 'alxuser',               # Database user
-        'PASSWORD': 'alx123456789',           # Database password
-        'HOST': 'localhost',                   # Database host, usually 'localhost'
+        'NAME': 'kinbaja$default',          # Database name
+        'USER': 'kinbaja',               # Database user
+        'PASSWORD': 'Ilaak123456',           # Database password
+        'HOST': 'kinbaja.mysql.pythonanywhere-services.com',                   # Database host, usually 'localhost'
         'PORT': '3306',                        # MySQL port, default is 3306
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
+        
     }
 }
 
